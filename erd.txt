@@ -1,0 +1,35 @@
+Table songs {
+  id integer [primary key]
+  title varchar
+  releaseDate date
+  artistId integer
+ 
+}
+
+Table artists {
+  id integer [primary key]
+  firstName varchar
+  lastName varchar
+  country varchar
+  }
+
+Table genres {
+  id integer [primary key]
+  category varchar
+ 
+  }
+
+Table songGenres{
+  songId integer // composite key
+  genreId integer // composite key
+ 
+  }
+
+
+
+
+Ref: "songs"."id" < "songGenres"."songId"
+
+Ref: "genres"."id" < "songGenres"."genreId"
+
+Ref: "artists"."id" < "songs"."artistId"
